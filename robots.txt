@@ -1,0 +1,3 @@
+User-agent: *
+Allow:/
+Sitemap: https://bestgift.gq/sitemap.xml
