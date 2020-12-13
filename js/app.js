@@ -3,6 +3,7 @@ var p_age;
 var p_gender;
 var p_score;
 var p_name;
+var ck_error;
 
 async function init() {
     await faceapi.nets.ssdMobilenetv1.loadFromUri('./models');
@@ -17,6 +18,12 @@ async function init() {
         .withFaceExpressions()
         .withAgeAndGender();
 
+    if(!detection) {
+        ck_error = 1;
+        console.log("error");
+    }
+    else {
+    
     console.log('인식 : ' + detection.detection.score);
     console.log('나이 : ' + detection.age);
     console.log('성별 : ' + detection.gender);
@@ -31,7 +38,9 @@ async function init() {
         }
     }
     console.log('감정 : ' + p_expression);
-    p_age = parseFloat(detection.age).toFixed(0);
+    a_x = parseFloat(detection.age).toFixed(0);
+    p_age = parseFloat(1/600*a_x*a_x + 13/12*a_x -1).toFixed(0);
+    console.log('계산나이 : ' + p_age);
     p_gender = detection.gender;
     p_score = parseFloat(detection.detection.score).toFixed(2);
 
@@ -44,8 +53,8 @@ async function init() {
 
     if(p_gender == "male") nan = Math.floor(Math.random() * 100);
     else nan = Math.floor(Math.random() * 100 + 100);
-    //await $.getJSON('https://web-comic-ucbef.run.goorm.io/web_comic/name.json', function (data) {
-    await $.getJSON('https://bestgift.gq/name.json', function (data) {
+    await $.getJSON('https://web-comic-ucbef.run.goorm.io/web_comic/name.json', function (data) {
+    //await $.getJSON('https://bestgift.gq/name.json', function (data) {
         p_name = data[nan]['name'];
     });
 
@@ -59,7 +68,7 @@ async function init() {
         '</span></p></div><br>';
     $('#loading').after(html_face);
     $('.friend').prepend(face);
-
+    
     /*
     //const container = document.createElement('div')
     //container.style.position = 'relative'
@@ -80,29 +89,38 @@ async function init() {
     */
     //var result_add = "<script>new PartnersCoupang.G({ id:382883 });</script>";
     //$('.file-upload-content').append(result_add);
+        
+        
+    }
 }
 
 
 async function recommand() {
+    if(ck_error){
+    var result_message = "AI쵸프가 얼굴분석에 실패했습니다!";
+    $('.result-message').html(result_message);
+    }
+    else {
     var cupang_id;
     if(p_gender == "male"){
-        if(p_age >= 0 && p_age <= 4) cupang_id = 383579;
-        else if(p_age >= 5 && p_age <= 17) cupang_id = 383475;
-        else if(p_age >= 18 && p_age <= 29) cupang_id = 383318;
+        if(p_age >= 0 && p_age <= 5) cupang_id = 383579;
+        else if(p_age >= 6 && p_age <= 19) cupang_id = 383475;
+        else if(p_age >= 20 && p_age <= 29) cupang_id = 383318;
         else if(p_age >= 30 && p_age <= 39) cupang_id = 383587;
         else cupang_id = 383593;
     }
     else {
-        if(p_age >= 0 && p_age <= 4) cupang_id = 383579;
-        else if(p_age >= 5 && p_age <= 17) cupang_id = 383459;
-        else if(p_age >= 18 && p_age <= 29) cupang_id = 382883;
+        if(p_age >= 0 && p_age <= 5) cupang_id = 383579;
+        else if(p_age >= 6 && p_age <= 19) cupang_id = 383459;
+        else if(p_age >= 20 && p_age <= 29) cupang_id = 382883;
         else if(p_age >= 30 && p_age <= 39) cupang_id = 383586;
         else cupang_id = 383588;
     }
-    var result_message = '▼ AI가 추천드리는 선물입니다 (*•̀ᴗ•́*)و ̑̑ ▼';
+    //  (*•̀ᴗ•́*)و ̑̑
+    var result_message = "▼ AI쵸프가 추천드리는 선물입니다! <i class='fas fa-gift'></i> ▼";
     $('.result-message').html(result_message);
     var result_add = '<script>new PartnersCoupang.G({ id:' + cupang_id + ' });</script>';
     $('.ins-add').append(result_add);
     $('ins').not($('.kakao_ad_area')).insertAfter('.ins-add');
-    
+    }
 }
