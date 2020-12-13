@@ -94,7 +94,9 @@ body {
     max-height: 60%;
     max-width: 60%;
     margin: auto;
-    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    box-shadow: 1px 1px 1px 1px #BDBDBD;
 }
 
 .try-again-btn {
@@ -136,13 +138,15 @@ body {
 
 .navbar-light .navbar-toggler {
     border-color: #ffffff;
+    
 }
 
 .section {
-    margin-top: 60px;
+    margin-top: 20px;
 }
 
 .title {
+    padding-top: 80px;
     line-height: 1.67;
     text-align: center;
     color: #2E2E2E;
@@ -189,6 +193,7 @@ body {
 
 .upload {
     width: 30%;
+    margin-top: 40px;
 }
 
 .upload-text {
@@ -205,133 +210,8 @@ body {
     color: initial;
 }
 
-.bar-container {
-    height: 2.7rem;
-}
-.dinosaur-box {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 2rem;
-    border-radius: 10px;
-    width: 100%;
-    background-color: rgba(117, 204, 84, 0.2);
-}
-.dinosaur-bar {
-    position: absolute;
-    top: 0;
-    left: 0;
-    height: 2rem;
-    border-radius: 10px;
-    background-color: rgba(117, 204, 84, 1);
-}
-.percent-text {
-    font-size: 1rem;
-    color: #ffffff;
-}
-.animal-label {
-    width: 20%;
-    text-align: left;
-    height: 2rem;
-}
-#label-container {
-    width: 80%;
-    margin: 0 auto;
-}
 .result-message {
     font-size: 1.4rem;
-}
-
-.animal-explain {
-    font-size: 1.5rem;
-}
-.dinosaur-animal-title {
-    color: #3ba363;
-}
-.dinosaur-animal-celeb {
-    color: #3ba363;
-    font-size: 1.2rem;
-}
-
-/* gender */
-input#gender {
-    display: none;
-}
-
-label {
-    cursor: pointer;
-    display: inline-block;
-    width: 90px;
-    height: 41px;
-    box-shadow: 0 0 0 8px #e5e9ea inset;
-    border-radius: 30px;
-    position: relative;
-}
-
-.knob {
-    position: absolute;
-    width: 41px;
-    top: 0;
-    left: 0;
-    height: 41px;
-    border-radius: 50%;
-    box-shadow: 0 0 0 8px #f470a7 inset;
-    background-color: #fbd4e6;
-    transition: 0.3s;
-}
-
-.knob > i {
-    position: absolute;
-    width: 4px;
-    height: 18px;
-    top: 100%;
-    background-color: #f470a7;
-    left: calc(50% - 2px);
-}
-
-.knob > i:before,
-.knob > i:after {
-    width: 6px;
-    position: absolute;
-    top: 42%;
-    content: '';
-    height: 4px;
-    background-color: #f470a7;
-}
-
-.knob > i:before {
-    left: 4px;
-}
-.knob > i:after {
-    left: -6px;
-}
-
-input:checked + label > .knob {
-    box-shadow: 0 0 0 8px #a1c6dd inset;
-    background-color: #e2ecf4;
-    transform: translateX(49px) rotate(-140deg);
-}
-
-input:checked + label > .knob > i {
-    background-color: #a1c6dd;
-}
-
-input:checked + label > .knob > i:after,
-input:checked + label > .knob > i:before {
-    background-color: #a1c6dd;
-}
-
-input:checked + label > .knob > i:after {
-    top: 14.5px;
-    width: 12px;
-    left: -7px;
-    transform: rotate(45deg);
-}
-input:checked + label > .knob > i:before {
-    top: 13px;
-    width: 12px;
-    left: 0px;
-    transform: rotate(134deg);
 }
 
 .ad-banner {
@@ -342,31 +222,29 @@ input:checked + label > .knob > i:before {
 
 .friend {
     width: 250px;
-    height: 70px;
+    height: 80px;
     border: 1px solid #e7ebee;
-    text-align: center;
     margin: 0 auto;
     background-color: #ffffff;
 }
 .friend canvas {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
     border-radius: 50%;
     object-fit: cover;
     margin: 15px;
     float: left;
 }
 .friend p {
-    padding: 15px 0 0 0;
-    float: left;
+    margin: 15px auto;
 }
 .friend p strong {
     font-weight: 600;
-    font-size: 15px;
+    font-size: 16px;
     color: #597a96;
 }
 .friend p span {
-    font-size: 13px;
+    font-size: 14px;
     font-weight: 400;
     color: #aab8c2;
 }
@@ -375,6 +253,10 @@ input:checked + label > .knob > i:before {
     margin: 0 auto;
 }
 
-.f_none {
-    display: none;
+
+img.img_chof1 {
+    position: absolute;
+    left: 70%;
+    top: 90px;
+    z-index: -1;
 }
