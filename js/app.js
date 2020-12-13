@@ -44,8 +44,8 @@ async function init() {
 
     if(p_gender == "male") nan = Math.floor(Math.random() * 100);
     else nan = Math.floor(Math.random() * 100 + 100);
-    await $.getJSON('https://web-comic-ucbef.run.goorm.io/web_comic/name.json', function (data) {
-    //await $.getJSON('https://bestgift.gq/name.json', function (data) {
+    //await $.getJSON('https://web-comic-ucbef.run.goorm.io/web_comic/name.json', function (data) {
+    await $.getJSON('https://bestgift.gq/name.json', function (data) {
         p_name = data[nan]['name'];
     });
 
