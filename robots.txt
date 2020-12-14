@@ -1,3 +1,4 @@
 User-agent: *
 Allow:/
 Sitemap: https://bestgift.gq/sitemap.xml
+DaumWebMasterTool:eca5706852ecf7cf9e4bdc163186e91f8e897856fcce8da6c2926e7088fe77f2:kM2h7CctHLHkqhfuJfjItw==
